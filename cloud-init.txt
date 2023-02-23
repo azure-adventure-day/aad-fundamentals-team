@@ -1,0 +1,21 @@
+#cloud-config
+
+# Option 2: Simplified, using the default package
+package_update: true
+package_upgrade: true
+
+groups:
+  - docker
+
+system_info:
+  default_user:
+    groups: [docker]
+
+packages:
+  - docker.io
+  - unattended-upgrades
+
+runcmd:
+  - docker run -d -p 80:8080 -e KEY=<Paste storage account key here> -e SA=<Paste storage account name here>  aadfundamentals.azurecr.io/energyminer:latest
+
+final_message: "The system is finally up, after $UPTIME seconds"
