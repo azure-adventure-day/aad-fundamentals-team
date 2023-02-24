@@ -16,6 +16,6 @@ packages:
   - unattended-upgrades
 
 runcmd:
-  - docker run --restart always -d -p 80:8080 -e KEY=<Paste storage account key here> -e SA=<Paste storage account name here>  aadfundamentals.azurecr.io/energyminer:latest
+  - docker run -d --restart always -p 80:8080 -e KEY=<Paste storage account key here> -e SA=<Paste storage account name here>  aadfundamentals.azurecr.io/energyminer:latest
 
 final_message: "The system is finally up, after $UPTIME seconds"
